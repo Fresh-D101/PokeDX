@@ -8,27 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.freshd.pokedx.Adapter.PokemonListAdapter
-import com.freshd.pokedx.Common.Common
-import com.freshd.pokedx.Common.ItemOffsetDecoration
-import com.freshd.pokedx.Retrofit.IPokemonList
-import com.freshd.pokedx.Retrofit.RetrofitClient
+import com.freshd.pokedx.adapter.PokemonListAdapter
+import com.freshd.pokedx.common.Common
+import com.freshd.pokedx.retrofit.IPokemonList
+import com.freshd.pokedx.retrofit.RetrofitClient
+import com.freshd.pokedx.common.ItemOffsetDecoration
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_pokemon_list.*
 import kotlinx.android.synthetic.main.fragment_pokemon_list.view.*
-import retrofit2.Retrofit
 
 class PokemonList : Fragment() {
 
-    internal var compositeDisposable = CompositeDisposable()
-    internal var iPokemonList:IPokemonList
+    private var compositeDisposable = CompositeDisposable()
+    private var iPokemonList: IPokemonList
 
-    internal lateinit var recyclerView:RecyclerView
+    private lateinit var recyclerView: RecyclerView
 
     init {
-        val retrofit:Retrofit = RetrofitClient.instance
+        val retrofit = RetrofitClient.instance
         iPokemonList = retrofit.create(IPokemonList::class.java)
     }
 
@@ -36,13 +34,12 @@ class PokemonList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val itemView = inflater.inflate(R.layout.fragment_pokemon_list, container, false)
 
         recyclerView = itemView.pokemon_recyclerview
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
-        val itemDecoration = ItemOffsetDecoration(activity!!, R.dimen.spacing)
+        val itemDecoration = ItemOffsetDecoration(itemView.context, R.dimen.spacing)
         recyclerView.addItemDecoration(itemDecoration)
 
         fetchData()
@@ -55,7 +52,7 @@ class PokemonList : Fragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { pokemonDex ->
-                Common.pokemonList = pokemonDex.pokemon!!
+                Common.pokemonList = pokemonDex.pokemon
                 val adapter = PokemonListAdapter(activity!!, Common.pokemonList)
 
                 recyclerView.adapter = adapter

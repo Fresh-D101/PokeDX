@@ -1,4 +1,4 @@
-package com.freshd.pokedx.Common
+package com.freshd.pokedx.common
 
 import android.content.Context
 import android.graphics.Rect

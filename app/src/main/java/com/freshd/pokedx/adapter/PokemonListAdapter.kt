@@ -1,4 +1,4 @@
-package com.freshd.pokedx.Adapter
+package com.freshd.pokedx.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.freshd.pokedx.Common.Common
-import com.freshd.pokedx.Model.Pokemon
+import com.freshd.pokedx.common.Common
+import com.freshd.pokedx.model.Pokemon
 import com.freshd.pokedx.R
 import kotlinx.android.synthetic.main.pokemon_list_item.view.*
 

@@ -1,4 +1,4 @@
-package com.freshd.pokedx.Model
+package com.freshd.pokedx.model
 
 class Pokemon {
 
@@ -22,21 +22,21 @@ class Pokemon {
     public List<PrevEvolution> prev_evolution { get; set; }
      */
 
-    var id:Int = 0
-    var num:String? = null
-    var name:String? = null
-    var img:String? = null
-    var type:List<String>? = null
-    var height:String? = null
-    var weight:String? = null
-    var candy:String? = null
-    var candy_count:Int = 0
-    var egg:String? = null
-    var spawn_chance:Double = 0.toDouble()
-    var avg_spawns:Double = 0.toDouble()
-    var spawn_time:String? = null
-    var multipliers:List<Double>? = null
-    var weaknesses:List<String>? = null
-    var next_evolution:List<Evolution>? = null
-    var prev_evolution:List<Evolution>? = null
+    var id: Int = 0
+    var num: String = ""
+    var name: String = ""
+    var img: String = ""
+    var type = emptyList<String>()
+    var height: String = ""
+    var weight: String = ""
+    var candy: String = ""
+    var candy_count = 0
+    var egg = ""
+    var spawn_chance = 0.0
+    var avg_spawns = 0.0
+    var spawn_time = ""
+    var multipliers = emptyList<Double>()
+    var weaknesses = emptyList<String>()
+    var next_evolution = emptyList<Evolution>()
+    var prev_evolution = emptyList<Evolution>()
 }

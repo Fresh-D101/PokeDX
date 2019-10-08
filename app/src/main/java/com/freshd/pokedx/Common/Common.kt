@@ -1,58 +1,45 @@
-package com.freshd.pokedx.Common
+package com.freshd.pokedx.common
 
-import android.graphics.Color
-import com.freshd.pokedx.Model.Pokemon
+import android.content.Context
+import androidx.core.content.res.ResourcesCompat
+import com.freshd.pokedx.model.Pokemon
+import com.freshd.pokedx.R
 
 object Common {
+    const val KEY_ENABLE_HOME = "position"
+    const val KEY_NUM_EVOLUTION = "evolution"
 
-    fun findPokemonByNum(num: String?): Pokemon?{
-        for(pokemon in pokemonList){
-            if(pokemon.num.equals(num))
+    var pokemonList = emptyList<Pokemon>()
+
+    fun findPokemonByNum(num: String?): Pokemon? {
+        for(pokemon in pokemonList) {
+            if(pokemon.num == num)
                 return pokemon
         }
         return null
     }
 
-    fun getColorByType(type: String): Int {
-        when (type) {
-
-            "Normal"    -> return Color.parseColor("#A4A27A")
-
-            "Dragon"    -> return Color.parseColor("#743BFB")
-
-            "Psychic"   -> return Color.parseColor("#F15B85")
-
-            "Electric"  -> return Color.parseColor("#E9CA3C")
-
-            "Ground"    -> return Color.parseColor("#D9BF6C")
-
-            "Grass"     -> return Color.parseColor("#81C85B")
-
-            "Poison"    -> return Color.parseColor("#A441A3")
-
-            "Steel"     -> return Color.parseColor("#BAB7D2")
-
-            "Fairy"     -> return Color.parseColor("#DDA2DF")
-
-            "Fire"      -> return Color.parseColor("#F48130")
-
-            "Fight"     -> return Color.parseColor("#BE3027")
-
-            "Bug"       -> return Color.parseColor("#A8B822")
-
-            "Ghost"     -> return Color.parseColor("#705693")
-
-            "Dark"      -> return Color.parseColor("#745945")
-
-            "Ice"       -> return Color.parseColor("#9BD8D8")
-
-            "Water"     -> return Color.parseColor("#658FF1")
-
-            else        -> return Color.parseColor("#658FA0")
+    fun getColorByType(context: Context, type: String): Int {
+        with(context) {
+            when (type) {
+                "Normal"    -> return ResourcesCompat.getColor(resources, R.color.Normal, null)
+                "Dragon"    -> return ResourcesCompat.getColor(resources, R.color.Dragon, null)
+                "Psychic"   -> return ResourcesCompat.getColor(resources, R.color.Psychic, null)
+                "Electric"  -> return ResourcesCompat.getColor(resources, R.color.Electric, null)
+                "Ground"    -> return ResourcesCompat.getColor(resources, R.color.Ground, null)
+                "Grass"     -> return ResourcesCompat.getColor(resources, R.color.Grass, null)
+                "Poison"    -> return ResourcesCompat.getColor(resources, R.color.Poison, null)
+                "Steel"     -> return ResourcesCompat.getColor(resources, R.color.Steel, null)
+                "Fairy"     -> return ResourcesCompat.getColor(resources, R.color.Fairy, null)
+                "Fire"      -> return ResourcesCompat.getColor(resources, R.color.Fire, null)
+                "Fight"     -> return ResourcesCompat.getColor(resources, R.color.Fight, null)
+                "Bug"       -> return ResourcesCompat.getColor(resources, R.color.Bug, null)
+                "Ghost"     -> return ResourcesCompat.getColor(resources, R.color.Ghost, null)
+                "Dark"      -> return ResourcesCompat.getColor(resources, R.color.Dark, null)
+                "Ice"       -> return ResourcesCompat.getColor(resources, R.color.Ice, null)
+                "Water"     -> return ResourcesCompat.getColor(resources, R.color.Water, null)
+                else        -> return ResourcesCompat.getColor(resources, R.color.Misc, null)
+            }
         }
     }
-
-    var pokemonList:List<Pokemon> = ArrayList()
-    const val KEY_ENABLE_HOME = "position"
-    const val KEY_NUM_EVOLUTION = "evolution"
 }

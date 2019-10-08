@@ -1,6 +1,6 @@
-package com.freshd.pokedx.Retrofit
+package com.freshd.pokedx.retrofit
 
-import com.freshd.pokedx.Model.PokeDex
+import com.freshd.pokedx.model.PokeDex
 import io.reactivex.Observable
 import retrofit2.http.GET
 

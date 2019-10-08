@@ -1,4 +1,4 @@
-package com.freshd.pokedx.Model
+package com.freshd.pokedx.model
 
 class Evolution {
     /*
@@ -6,6 +6,6 @@ class Evolution {
     public string name { get; set; }
      */
 
-    var num:String? = null
-    var name:String? = null
+    var num = ""
+    var name = ""
 }

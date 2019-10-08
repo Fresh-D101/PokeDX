@@ -1,12 +1,11 @@
-package com.freshd.pokedx.Adapter
+package com.freshd.pokedx.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.freshd.pokedx.Common.Common
+import com.freshd.pokedx.common.Common
 import com.freshd.pokedx.R
 import com.robertlevonyan.views.chip.Chip
 import kotlinx.android.synthetic.main.chip_item.view.*
@@ -27,9 +26,9 @@ class PokemonTypeAdapter(internal var context: Context, internal var typeList:Li
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var type = typeList[position]
+        val type = typeList[position]
         holder.chip.text = type
-        holder.chip.chipBackgroundColor = Common.getColorByType(type)
+        holder.chip.chipBackgroundColor = Common.getColorByType(holder.itemView.context, type)
     }
 }
 

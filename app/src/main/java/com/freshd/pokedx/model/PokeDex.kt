@@ -1,9 +1,9 @@
-package com.freshd.pokedx.Model
+package com.freshd.pokedx.model
 
 class PokeDex {
     /*
     public List<Pokemon> pokemon { get; set; }
      */
 
-    var pokemon:List<Pokemon>? = null
+    var pokemon = emptyList<Pokemon>()
 }
